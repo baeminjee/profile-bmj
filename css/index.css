@@ -187,7 +187,7 @@ p{
         text-align: center;
     }
     .hero-title {
-       /* font-size:calc(100vw/4.4); */
+       font-size:calc(100vw/10);
     }
     .pro-title h2{
         font-size: 2.7rem;
