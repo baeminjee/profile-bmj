@@ -151,9 +151,9 @@
                             </dl>
                         </section>
                     </div>
-                    <div class="My Toolbox">
+                    <div class="My toolbox">
                         <div class="my-title">
-                            <h2>Expertise</h2>
+                            <h2>My Toolbox</h2>
                             <p>사용자의 편리함을 고민하며 디자인하고, 브라우저에 직접 옮기기 위해 필요한 기술들입니다. 디자인 툴과 마크업 언어를 활용하여, 기획 의도가 화면에 바르게 전달될 수 있도록 꼼꼼하게 작업할 수 있습니다.</p>
                         </div>
                         <ul class="skill-grid">
@@ -243,8 +243,8 @@
                             </div>
                             <div class="swiper-slide">
                                 <h3>세제 브랜드 테마 멤버십 팝업</h3>
-                                <p>브랜드 아이덴티티 강조 브랜드 로고와 메인 제품의 시그니처 컬러인 '딥 블루'와 '옐로우'를 강렬한 보색 대비로 매치하여 시선을 단번에 사로잡고 브랜드 이미지를 강력하게 각인시켰습니다.<br></p>
-                                <p>직관적인 행동 유도 브랜드명 "어서 ON세요"에 토글 스위치 그래픽을 결합한 위트 있는 슬로건과 뚜렷한 "한 번에 쿠폰 받기 >" CTA 버튼을 통해 사용자의 유입과 가입 행동을 효과적으로 유도했습니다.</p>
+                                <p>로고와 제품의 시그니처 컬러를 보색으로 매치해 시각적 몰입도와 브랜드 인지도를 높였습니다.<br></p>
+                                <p>브랜드명 '어서 ON세요'와 토글 그래픽, 직관적인 '쿠폰 받기' CTA로 가입 전환율을 높였습니다.</p>
                             </div>
                             <div class="swiper-slide">
                                 <h3>빙그레 단지우유 팝업</h3>
@@ -269,7 +269,10 @@
                         </div>
                     </div>
                     <script>
-                        const popupTxtSlider = new Swiper(".popup-txt-slider")
+                        const popupTxtSlider = new Swiper(".popup-txt-slider",{
+                            effect:"fade",
+                            allowTouchMove:false,
+                        })
                     </script>
                 </div>
                 <div class="popup-station">
@@ -297,18 +300,23 @@
                     </div>
                     <script>
                         const popupImgSlider = new Swiper(".popup-img-slider",{
-                            slidesPerView: 1,
+                            speed:7000,
+                            autoplay:{
+                                delay:0,
+                            },    
+                            loop:true,
+                            slidesPerView: 1.4,
                             spaceBetween: 14,
                             // Responsive breakpoints
                             breakpoints: {
                                 // when window width is >= 320px
                                 320: {
-                                slidesPerView: 1.2,
+                                slidesPerView: 1.6,
                                 spaceBetween: 14
                                 },
                                 // when window width is >= 480px
                                 480: {
-                                slidesPerView: 1.2,
+                                slidesPerView: 1.6,
                                 spaceBetween: 14
                                 },
                                 // when window width is >= 640px
@@ -322,9 +330,145 @@
                                 },
                             }
                         })
+
+                        popupImgSlider.on('slideChange', function () {
+                            // console.log(popupImgSlider.realIndex);
+                            popupTxtSlider.slideTo(popupImgSlider.realIndex, 1000)
+                        });
                     </script>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="poster">
+        <div class="common-frame">
+            <ul class="poster-list">
+                <li>
+                    <figure>
+                        <img src="./img/포스터1.jpg" alt="포스터1">
+                    </figure>    
+                        <div class="poster-txt">
+                            <h3>BLUE & BOLD: Brew, bite, brainstorm</h3>
+                            <p>강렬한 코발트 블루와 깨끗한 화이트 컬러의 대비를 활용하여 시선을 사로잡는 그래픽 포스터입니다.</p>
+                            <p>중앙의 키치한 일러스트는 캐주얼하고 힙한 무드를 완성하며, 하단의 정갈한 텍스트로 정보를 명확히 전달합니다.</p>
+                        </div>
+                </li>
+                <li>
+                    <figure>
+                        <img src="./img/포스터2.jpg" alt="포스터2">
+                    </figure>    
+                        <div class="poster-txt">
+                            <h3>PREMIUM MATCHA</h3>
+                            <p>'FLOOD COFFEE LAB'에서 선보이는 프리미엄 말차 라떼 포스터입니다.</p>
+                            <p>미니멀한 베이지 배경 위에 상단에서 내려다본(Top-down) 말차 라떼의 이미지를 중앙에 배치하여 시각적 몰입감을 높였습니다.</p>
+                        </div>
+                </li>
+                <li>
+                    <figure>
+                        <img src="./img/포스터3.jpg" alt="포스터3">
+                    </figure>    
+                        <div class="poster-txt">
+                            <h3>MONO GROUND: Where Coffee Settles</h3>
+                            <p>연필 스케치 기법으로 담아낸 정겨운 카페 외관이 인상적인 포스터입니다. </p>
+                            <p>화려함보다는 본질에 집중하는 'MONO GROUND'의 철학을 종이 질감의 배경과 섬세한 드로잉으로 표현했습니다.</p>
+                        </div>
+                </li>
+                <li>
+                    <figure>
+                        <img src="./img/포스터4.jpg" alt="포스터4">
+                    </figure>    
+                        <div class="poster-txt">
+                            <h3>PURPLE VIBE: NEW CROISSANT MENU</h3>
+                            <p>선명한 퍼플 컬러와 볼드한 타이포그래피의 조화로 시각적 압도감을 주는 포스터입니다.</p>
+                            <p>사선으로 배치된 상단의 텍스트와 배경의 테이프 그래픽이 역동적인 리듬감을 만들고, 중앙의 크로와상 실사를 더욱 먹음직스럽게 돋보이게 합니다.</p>
+                        </div>
+                </li>
+                <li>
+                    <figure>
+                        <img src="./img/포스터5.jpg" alt="포스터5">
+                    </figure>    
+                        <div class="poster-txt">
+                            <h3>CENTELLA ESSENCE</h3>
+                            <p>제품의 핵심 성분인 '센텔라'의 진정 효과를 시각적으로 극대화한 포스터입니다.</p>
+                            <p>투명한 앰플 용기의 비주얼을 조화롭게 배치, 자극 없이 순수한 피부 케어를 지향하는 브랜드의 철학을 고급스럽게 담아냈습니다.</p>
+                        </div>
+                </li>
+                <li>
+                    <figure>
+                        <img src="./img/포스터6.jpg" alt="포스터6">
+                    </figure>    
+                        <div class="poster-txt">
+                            <h3>RETRO SWEETS: PINK CRUMBS</h3>
+                            <p>사랑스러운 핑크 톤을 베이스로, 옛날 매거진 화보를 보는 듯한 노스탤지어 감성을 담아낸 포스터입니다.</p>
+                            <p>단순한 디저트 메뉴 안내를 넘어, 추억 속 달콤한 순간을 소환하는 브랜드의 아이덴티티를 명확히 보여줍니다.</p>
+                        </div>
+                </li>
+                <li>
+                    <figure>
+                        <img src="./img/포스터7.jpg" alt="포스터7">
+                    </figure>    
+                        <div class="poster-txt">
+                            <h3>RETRO SWEETS: PINK CRUMBS</h3>
+                            <p>'Pink Crumbs' 브랜드를 구성하는 요소들을 아이콘화하여 패턴처럼 활용한 디자인입니다.</p>
+                            <p>앞선 포스터와 이어지는 시리즈물로서 브랜드의 비주얼 언어를 더욱 풍성하게 확장하는 역할을 합니다.</p>
+                        </div>
+                </li>
+                <li>
+                    <figure>
+                        <img src="./img/포스터8.jpg" alt="포스터8">
+                    </figure>    
+                        <div class="poster-txt">
+                            <h3>BEYOND THE FORM</h3>
+                            <p>바우하우스 건립 100주년을 기념하여 제작된 전시 포스터입니다.</p>
+                            <p>불필요한 장식을 배제한 절제된 구성을 통해 시각적 명확성과 본질에 집중하는 디자인적 접근을 시도했습니다.</p>
+                        </div>
+                </li>
+            </ul>
+            <div class="poster-title">
+                <h2>Poster Designs</h2>
+                <p class="pf1">{Strategic Visualization}</p>
+                <p>기획 의도와 데이터를 효과적으로 시각화하여 디자인해 보았습니다.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="banner">
+        <div class="common-frame">
+            <h2>Banner Designs</h2>
+            <p class="pf1">{Engaging & Informative}</p>
+            <p>히어로 섹션 메인 배너를 1920x700 사이즈에 맞춰 작업해 보았습니다.</p>
+            <div class="swiper banner-slider">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="./img/배너1.jpg" alt="아디다스 세일 배너">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/배너2.jpg" alt="베이커리 카페 배너">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/배너3.jpg" alt="침구 세일 배너1">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/배너4.jpg" alt="침구 세일 배너2">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/배너5.jpg" alt="크리스마스 할인 배너">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/배너6.jpg" alt="토리든 기초 제품 세일 배너">
+                    </div>
+                </div>
+            </div>
+            <script>
+                const bannerSlider = new Swiper(".banner-slider",{
+                    autoplay:{
+                        delay:3000
+                    },
+                    speed:1000,
+                    loop:true
+                })
+            </script>
         </div>
     </div>
 
